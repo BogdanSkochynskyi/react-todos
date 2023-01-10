@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
+import NewTodoForm from './components/NewTodoForm';
 import TodoTable from './components/TodoTable';
+
 
 function App() {
 
@@ -12,12 +14,12 @@ function App() {
   ] 
   )
 
-  const addTask = () => {
+  const addTask = (description, assigned) => {
     if(todos.length > 0) {
       const newTask = {
         rowNumber: todos.length + 1, 
-        rowDescription: 'New task', 
-        rowAssigned: 'New user'
+        rowDescription: description, 
+        rowAssigned: assigned
       };
       setTodos(todos => [...todos, newTask]);
     }
@@ -32,6 +34,7 @@ function App() {
         <div className='card-body'>
           <TodoTable todos={todos}/>
           <button className='btn btn-primary' onClick={addTask}>Add new task</button>
+          <NewTodoForm addTask={addTask}/>
         </div>
       </div>
         
