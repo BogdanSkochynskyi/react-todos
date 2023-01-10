@@ -15,14 +15,18 @@ function App() {
   )
 
   const addTask = (description, assigned) => {
+    let rowNumber = 0;
     if(todos.length > 0) {
+      rowNumber = todos[todos.length - 1].rowNumber + 1;
+    } else {
+      rowNumber = 1;
+    }
       const newTask = {
-        rowNumber: todos.length + 1, 
+        rowNumber: rowNumber, 
         rowDescription: description, 
         rowAssigned: assigned
       };
       setTodos(todos => [...todos, newTask]);
-    }
   }
 
   return (
