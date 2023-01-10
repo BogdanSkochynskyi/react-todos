@@ -17,6 +17,7 @@ function TodoTable(props) {
                      rowNumber={todo.rowNumber} 
                      rowDescription={todo.rowDescription} 
                      rowAssigned={todo.rowAssigned}
+                     deleteTask={props.deleteTask}
                     />)}
             </tbody>
           </table>
