@@ -10,6 +10,18 @@ function App() {
     {rowNumber: 4, rowDescription: 'Task 4', rowAssigned: 'Bogdan'}
   ]
 
+  const addTask = () => {
+    if(todos.length > 0) {
+      const newTask = {
+        rowNumber: todos.length + 1, 
+        rowDescription: 'New task', 
+        rowAssigned: 'New user'
+      };
+      todos.push(newTask);
+      console.log(todos);
+    }
+  }
+
   return (
     <div className='mt-5 container'>
       <div className='card'>
@@ -18,6 +30,7 @@ function App() {
         </div>
         <div className='card-body'>
           <TodoTable todos={todos}/>
+          <button className='btn btn-primary' onClick={addTask}>Add new task</button>
         </div>
       </div>
         
